@@ -1,0 +1,20 @@
+{
+    "agents": [
+        "gemini",
+        "copilot",
+        "claude_code",
+        "junie",
+        "codex",
+        "cursor"
+    ],
+    "guidelines": true,
+    "herd_mcp": false,
+    "mcp": true,
+    "sail": false,
+    "skills": [
+        "wayfinder-development",
+        "pest-testing",
+        "inertia-vue-development",
+        "tailwindcss-development"
+    ]
+}
