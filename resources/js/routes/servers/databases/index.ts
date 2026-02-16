@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\ServerController::transfer
- * @see app/Http/Controllers/ServerController.php:454
+ * @see app/Http/Controllers/ServerController.php:453
  * @route '/servers/{server}/databases/transfer'
  */
 export const transfer = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ transfer.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::transfer
- * @see app/Http/Controllers/ServerController.php:454
+ * @see app/Http/Controllers/ServerController.php:453
  * @route '/servers/{server}/databases/transfer'
  */
 transfer.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ transfer.url = (args: { server: number | { id: number } } | [server: number | { 
 
 /**
 * @see \App\Http\Controllers\ServerController::transfer
- * @see app/Http/Controllers/ServerController.php:454
+ * @see app/Http/Controllers/ServerController.php:453
  * @route '/servers/{server}/databases/transfer'
  */
 transfer.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -59,7 +59,7 @@ transfer.post = (args: { server: number | { id: number } } | [server: number | {
 
     /**
 * @see \App\Http\Controllers\ServerController::transfer
- * @see app/Http/Controllers/ServerController.php:454
+ * @see app/Http/Controllers/ServerController.php:453
  * @route '/servers/{server}/databases/transfer'
  */
     const transferForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -69,7 +69,7 @@ transfer.post = (args: { server: number | { id: number } } | [server: number | {
 
             /**
 * @see \App\Http\Controllers\ServerController::transfer
- * @see app/Http/Controllers/ServerController.php:454
+ * @see app/Http/Controllers/ServerController.php:453
  * @route '/servers/{server}/databases/transfer'
  */
         transferForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

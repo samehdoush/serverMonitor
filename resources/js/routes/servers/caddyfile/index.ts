@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
+ * @see app/Http/Controllers/ServerController.php:334
  * @route '/servers/{server}/caddyfile'
  */
 export const save = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ save.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
+ * @see app/Http/Controllers/ServerController.php:334
  * @route '/servers/{server}/caddyfile'
  */
 save.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ save.url = (args: { server: number | { id: number } } | [server: number | { id: 
 
 /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
+ * @see app/Http/Controllers/ServerController.php:334
  * @route '/servers/{server}/caddyfile'
  */
 save.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -59,7 +59,7 @@ save.post = (args: { server: number | { id: number } } | [server: number | { id:
 
     /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
+ * @see app/Http/Controllers/ServerController.php:334
  * @route '/servers/{server}/caddyfile'
  */
     const saveForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -69,7 +69,7 @@ save.post = (args: { server: number | { id: number } } | [server: number | { id:
 
             /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
+ * @see app/Http/Controllers/ServerController.php:334
  * @route '/servers/{server}/caddyfile'
  */
         saveForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

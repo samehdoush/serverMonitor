@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\ServerController::deleteMethod
- * @see app/Http/Controllers/ServerController.php:385
+ * @see app/Http/Controllers/ServerController.php:384
  * @route '/servers/{server}/firewall/rule'
  */
 export const deleteMethod = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -16,7 +16,7 @@ deleteMethod.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::deleteMethod
- * @see app/Http/Controllers/ServerController.php:385
+ * @see app/Http/Controllers/ServerController.php:384
  * @route '/servers/{server}/firewall/rule'
  */
 deleteMethod.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ deleteMethod.url = (args: { server: number | { id: number } } | [server: number 
 
 /**
 * @see \App\Http\Controllers\ServerController::deleteMethod
- * @see app/Http/Controllers/ServerController.php:385
+ * @see app/Http/Controllers/ServerController.php:384
  * @route '/servers/{server}/firewall/rule'
  */
 deleteMethod.delete = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -59,7 +59,7 @@ deleteMethod.delete = (args: { server: number | { id: number } } | [server: numb
 
     /**
 * @see \App\Http\Controllers\ServerController::deleteMethod
- * @see app/Http/Controllers/ServerController.php:385
+ * @see app/Http/Controllers/ServerController.php:384
  * @route '/servers/{server}/firewall/rule'
  */
     const deleteMethodForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -74,7 +74,7 @@ deleteMethod.delete = (args: { server: number | { id: number } } | [server: numb
 
             /**
 * @see \App\Http\Controllers\ServerController::deleteMethod
- * @see app/Http/Controllers/ServerController.php:385
+ * @see app/Http/Controllers/ServerController.php:384
  * @route '/servers/{server}/firewall/rule'
  */
         deleteMethodForm.delete = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

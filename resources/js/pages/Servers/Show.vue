@@ -151,6 +151,7 @@ const transferData = ref({
 const transferOutput = ref<string | null>(null);
 const showTransferOutputModal = ref(false);
 const allServers = ref<any[]>([]);
+const isRebooting = ref(false);
 
 let term: Terminal | null = null;
 let fitAddon: FitAddon | null = null;
@@ -1046,6 +1047,35 @@ const deleteServer = () => {
     }
 };
 
+const rebootServer = async () => {
+    if (!confirm('Are you sure you want to REBOOT this server? All services will be temporarily unavailable.')) return;
+
+    isRebooting.value = true;
+    try {
+        const response = await fetch(`/servers/${props.server.id}/reboot`, {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json', 
+                'X-CSRF-TOKEN': (document.querySelector('meta[name="csrf-token"]') as any).content 
+            }
+        });
+        const data = await response.json();
+        
+        if (data.success) {
+            alert(data.message);
+            isLive.value = false; // Pause monitoring as server goes down
+        } else {
+            alert('Reboot failed: ' + data.message);
+        }
+    } catch (error) {
+        // We often get errors when the server disconnects during reboot, which is "success"
+        alert('Reboot command sent. The server is now restarting.');
+        isLive.value = false;
+    } finally {
+        isRebooting.value = false;
+    }
+};
+
 
 
 const startStreaming = () => {
@@ -1187,6 +1217,12 @@ onUnmounted(() => {
                         </svg>
                         Edit
                     </Link>
+                    <button class="btn btn-secondary reboot-btn" @click="rebootServer" :disabled="isRebooting">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18.36 6.64a9 9 0 1 1-12.73 0M12 2v10" />
+                        </svg>
+                        {{ isRebooting ? 'Rebooting...' : 'Reboot' }}
+                    </button>
                     <button class="btn btn-danger" @click="deleteServer">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="3 6 5 6 21 6" />

@@ -86,7 +86,6 @@ class ServerController extends Controller
             ->where('recorded_at', '>=', now()->subDays(3))
             ->orderBy('recorded_at', 'asc')
             ->get();
-    
 
         return Inertia::render('Servers/Show', [
             'server' => $server->load('latestMetric'),
@@ -462,6 +461,13 @@ class ServerController extends Controller
         $destination = Server::findOrFail($validated['destination_server_id']);
 
         $result = $sshService->transferDatabase($server, $destination, $validated['database'], $validated['destination_database']);
+
+        return response()->json($result);
+    }
+
+    public function reboot(Server $server, SshService $sshService)
+    {
+        $result = $sshService->rebootServer($server);
 
         return response()->json($result);
     }

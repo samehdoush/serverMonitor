@@ -22,6 +22,7 @@ Route::post('/servers/{server}/service-action', [ServerController::class, 'servi
 Route::post('/servers/{server}/fetch-log', [ServerController::class, 'fetchLog'])->name('servers.fetch-log');
 Route::post('/servers/{server}/terminal', [ServerController::class, 'executeTerminal'])->name('servers.terminal');
 Route::post('/servers/{server}/discover-services', [ServerController::class, 'discoverServices'])->name('servers.discover-services');
+Route::post('/servers/{server}/reboot', [ServerController::class, 'reboot'])->name('servers.reboot');
 Route::get('/servers/{server}/caddyfile', [ServerController::class, 'getCaddyfile'])->name('servers.caddyfile');
 Route::post('/servers/{server}/caddyfile', [ServerController::class, 'saveCaddyfile'])->name('servers.caddyfile.save');
 Route::post('/select-ssh-key', [ServerController::class, 'selectSshKey'])->name('select-ssh-key');

@@ -1193,4 +1193,40 @@ class SshService
             return ['success' => false, 'message' => $e->getMessage()];
         }
     }
+
+    /**
+     * Reboot the server
+     */
+    public function rebootServer(Server $server): array
+    {
+        try {
+            $ssh = $this->connect($server);
+
+            // Reboot command usually kills the connection, so we don't expect a clean discharge
+            $ssh->setTimeout(5);
+            $cmd = $this->wrapSudo('sudo reboot', $server);
+            $ssh->exec($cmd);
+
+            // We disconnect manually if the server hasn't already closed it
+            try {
+                $ssh->disconnect();
+            } catch (Exception $e) {
+            }
+
+            return [
+                'success' => true,
+                'message' => 'Reboot command sent successfully. Server is restarting.',
+            ];
+        } catch (Exception $e) {
+            // If connection is lost immediately, it might actually be a success
+            if (str_contains($e->getMessage(), 'Connection lost') || str_contains($e->getMessage(), 'Broken pipe')) {
+                return [
+                    'success' => true,
+                    'message' => 'Reboot command sent. Connection lost as expected.',
+                ];
+            }
+
+            return ['success' => false, 'message' => $e->getMessage()];
+        }
+    }
 }
