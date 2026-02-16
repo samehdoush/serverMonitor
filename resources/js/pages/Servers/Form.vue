@@ -13,6 +13,8 @@ interface Server {
     password?: string;
     ssh_key_path: string;
     key_password: string;
+    db_username?: string;
+    db_password?: string;
     cpu_threshold: number;
     ram_threshold: number;
     disk_threshold: number;
@@ -34,6 +36,8 @@ const form = useForm({
     password: '',
     ssh_key_path: props.server?.ssh_key_path ?? '',
     key_password: '',
+    db_username: props.server?.db_username ?? '',
+    db_password: '',
     cpu_threshold: props.server?.cpu_threshold ?? 80,
     ram_threshold: props.server?.ram_threshold ?? 80,
     disk_threshold: props.server?.disk_threshold ?? 80,
@@ -210,16 +214,29 @@ const submit = () => {
                             <span v-if="form.errors.ssh_key_path" class="error-message">{{ form.errors.ssh_key_path }}</span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="key_password">Key Passphrase (if encrypted)</label>
-                            <input
-                                id="key_password"
-                                v-model="form.key_password"
-                                type="password"
-                                placeholder="Leave empty if no passphrase"
-                                class="form-input"
-                            />
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="key_password">Key Passphrase</label>
+                                <input
+                                    id="key_password"
+                                    v-model="form.key_password"
+                                    type="password"
+                                    placeholder="Empty if no passphrase"
+                                    class="form-input"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="sudo_password">Sudo Password (Optional)</label>
+                                <input
+                                    id="sudo_password"
+                                    v-model="form.password"
+                                    type="password"
+                                    placeholder="For sudo commands"
+                                    class="form-input"
+                                />
+                            </div>
                         </div>
+                        <p class="help-text">Adding a sudo password allows executing commands that require elevated permissions without manual interaction.</p>
                     </div>
 
                     <div v-if="form.auth_type === 'password'" class="auth-fields-group">
@@ -234,6 +251,33 @@ const submit = () => {
                                 :class="{ error: form.errors.password }"
                             />
                             <span v-if="form.errors.password" class="error-message">{{ form.errors.password }}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-section-inner">
+                        <h3>Database Credentials (Optional)</h3>
+                        <p class="help-text-sm">Providing these allows managing MySQL. If empty, we'll try 'sudo' bypass.</p>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="db_username">DB Username</label>
+                                <input
+                                    id="db_username"
+                                    v-model="form.db_username"
+                                    type="text"
+                                    placeholder="forge"
+                                    class="form-input"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="db_password">DB Password</label>
+                                <input
+                                    id="db_password"
+                                    v-model="form.db_password"
+                                    type="password"
+                                    placeholder="MySQL Password"
+                                    class="form-input"
+                                />
+                            </div>
                         </div>
                     </div>
 
@@ -606,5 +650,23 @@ const submit = () => {
     border-top: 1px solid rgba(99, 102, 241, 0.1);
     padding-top: 1.5rem;
     margin-top: 1rem;
+}
+
+.form-section-inner {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form-section-inner h3 {
+    font-size: 0.875rem;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+}
+
+.help-text-sm {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 1rem;
 }
 </style>

@@ -79,7 +79,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     dashboard.form = dashboardForm
 /**
 * @see \App\Http\Controllers\ServerController::selectSshKey
- * @see app/Http/Controllers/ServerController.php:163
+ * @see app/Http/Controllers/ServerController.php:183
  * @route '/select-ssh-key'
  */
 export const selectSshKey = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -94,7 +94,7 @@ selectSshKey.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::selectSshKey
- * @see app/Http/Controllers/ServerController.php:163
+ * @see app/Http/Controllers/ServerController.php:183
  * @route '/select-ssh-key'
  */
 selectSshKey.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ selectSshKey.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ServerController::selectSshKey
- * @see app/Http/Controllers/ServerController.php:163
+ * @see app/Http/Controllers/ServerController.php:183
  * @route '/select-ssh-key'
  */
 selectSshKey.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -113,7 +113,7 @@ selectSshKey.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\ServerController::selectSshKey
- * @see app/Http/Controllers/ServerController.php:163
+ * @see app/Http/Controllers/ServerController.php:183
  * @route '/select-ssh-key'
  */
     const selectSshKeyForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -123,7 +123,7 @@ selectSshKey.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\ServerController::selectSshKey
- * @see app/Http/Controllers/ServerController.php:163
+ * @see app/Http/Controllers/ServerController.php:183
  * @route '/select-ssh-key'
  */
         selectSshKeyForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

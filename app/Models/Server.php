@@ -17,12 +17,15 @@ class Server extends Model
         'password',
         'ssh_key_path',
         'key_password',
+        'db_username',
+        'db_password',
         'cpu_threshold',
         'ram_threshold',
         'disk_threshold',
         'installed_services',
         'is_active',
         'last_connected_at',
+        'sort_order',
     ];
 
     protected $casts = [
@@ -33,11 +36,13 @@ class Server extends Model
         'installed_services' => 'array',
         'is_active' => 'boolean',
         'last_connected_at' => 'datetime',
+        'sort_order' => 'integer',
     ];
 
     protected $hidden = [
         'key_password',
         'password',
+        'db_password',
     ];
 
     protected $appends = [
@@ -109,5 +114,25 @@ class Server extends Model
     public function setPasswordAttribute($value): void
     {
         $this->attributes['password'] = $value ? encrypt($value) : null;
+    }
+
+    /**
+     * Get decrypted database password
+     */
+    public function getDecryptedDbPassword(): ?string
+    {
+        if (empty($this->db_password)) {
+            return null;
+        }
+
+        return decrypt($this->db_password);
+    }
+
+    /**
+     * Set encrypted database password
+     */
+    public function setDbPasswordAttribute($value): void
+    {
+        $this->attributes['db_password'] = $value ? encrypt($value) : null;
     }
 }

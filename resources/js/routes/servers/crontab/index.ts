@@ -1,8 +1,8 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
- * @route '/servers/{server}/caddyfile'
+ * @see app/Http/Controllers/ServerController.php:353
+ * @route '/servers/{server}/crontab'
  */
 export const save = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: save.url(args, options),
@@ -11,13 +11,13 @@ export const save = (args: { server: number | { id: number } } | [server: number
 
 save.definition = {
     methods: ["post"],
-    url: '/servers/{server}/caddyfile',
+    url: '/servers/{server}/crontab',
 } satisfies RouteDefinition<["post"]>
 
 /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
- * @route '/servers/{server}/caddyfile'
+ * @see app/Http/Controllers/ServerController.php:353
+ * @route '/servers/{server}/crontab'
  */
 save.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
@@ -49,8 +49,8 @@ save.url = (args: { server: number | { id: number } } | [server: number | { id: 
 
 /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
- * @route '/servers/{server}/caddyfile'
+ * @see app/Http/Controllers/ServerController.php:353
+ * @route '/servers/{server}/crontab'
  */
 save.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: save.url(args, options),
@@ -59,8 +59,8 @@ save.post = (args: { server: number | { id: number } } | [server: number | { id:
 
     /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
- * @route '/servers/{server}/caddyfile'
+ * @see app/Http/Controllers/ServerController.php:353
+ * @route '/servers/{server}/crontab'
  */
     const saveForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: save.url(args, options),
@@ -69,8 +69,8 @@ save.post = (args: { server: number | { id: number } } | [server: number | { id:
 
             /**
 * @see \App\Http\Controllers\ServerController::save
- * @see app/Http/Controllers/ServerController.php:335
- * @route '/servers/{server}/caddyfile'
+ * @see app/Http/Controllers/ServerController.php:353
+ * @route '/servers/{server}/crontab'
  */
         saveForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: save.url(args, options),
@@ -78,8 +78,8 @@ save.post = (args: { server: number | { id: number } } | [server: number | { id:
         })
     
     save.form = saveForm
-const caddyfile = {
+const crontab = {
     save: Object.assign(save, save),
 }
 
-export default caddyfile
+export default crontab

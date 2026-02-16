@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\BackupController::index
- * @see app/Http/Controllers/BackupController.php:14
+ * @see app/Http/Controllers/BackupController.php:11
  * @route '/backup'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\BackupController::index
- * @see app/Http/Controllers/BackupController.php:14
+ * @see app/Http/Controllers/BackupController.php:11
  * @route '/backup'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\BackupController::index
- * @see app/Http/Controllers/BackupController.php:14
+ * @see app/Http/Controllers/BackupController.php:11
  * @route '/backup'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\BackupController::index
- * @see app/Http/Controllers/BackupController.php:14
+ * @see app/Http/Controllers/BackupController.php:11
  * @route '/backup'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\BackupController::index
- * @see app/Http/Controllers/BackupController.php:14
+ * @see app/Http/Controllers/BackupController.php:11
  * @route '/backup'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\BackupController::index
- * @see app/Http/Controllers/BackupController.php:14
+ * @see app/Http/Controllers/BackupController.php:11
  * @route '/backup'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\BackupController::index
- * @see app/Http/Controllers/BackupController.php:14
+ * @see app/Http/Controllers/BackupController.php:11
  * @route '/backup'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Http\Controllers\BackupController::exportMethod
- * @see app/Http/Controllers/BackupController.php:19
+ * @see app/Http/Controllers/BackupController.php:16
  * @route '/backup/export'
  */
 export const exportMethod = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -94,7 +94,7 @@ exportMethod.definition = {
 
 /**
 * @see \App\Http\Controllers\BackupController::exportMethod
- * @see app/Http/Controllers/BackupController.php:19
+ * @see app/Http/Controllers/BackupController.php:16
  * @route '/backup/export'
  */
 exportMethod.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ exportMethod.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\BackupController::exportMethod
- * @see app/Http/Controllers/BackupController.php:19
+ * @see app/Http/Controllers/BackupController.php:16
  * @route '/backup/export'
  */
 exportMethod.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -113,7 +113,7 @@ exportMethod.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\BackupController::exportMethod
- * @see app/Http/Controllers/BackupController.php:19
+ * @see app/Http/Controllers/BackupController.php:16
  * @route '/backup/export'
  */
     const exportMethodForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -123,7 +123,7 @@ exportMethod.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\BackupController::exportMethod
- * @see app/Http/Controllers/BackupController.php:19
+ * @see app/Http/Controllers/BackupController.php:16
  * @route '/backup/export'
  */
         exportMethodForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -134,7 +134,7 @@ exportMethod.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     exportMethod.form = exportMethodForm
 /**
 * @see \App\Http\Controllers\BackupController::importMethod
- * @see app/Http/Controllers/BackupController.php:55
+ * @see app/Http/Controllers/BackupController.php:52
  * @route '/backup/import'
  */
 export const importMethod = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -149,7 +149,7 @@ importMethod.definition = {
 
 /**
 * @see \App\Http\Controllers\BackupController::importMethod
- * @see app/Http/Controllers/BackupController.php:55
+ * @see app/Http/Controllers/BackupController.php:52
  * @route '/backup/import'
  */
 importMethod.url = (options?: RouteQueryOptions) => {
@@ -158,7 +158,7 @@ importMethod.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\BackupController::importMethod
- * @see app/Http/Controllers/BackupController.php:55
+ * @see app/Http/Controllers/BackupController.php:52
  * @route '/backup/import'
  */
 importMethod.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -168,7 +168,7 @@ importMethod.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\BackupController::importMethod
- * @see app/Http/Controllers/BackupController.php:55
+ * @see app/Http/Controllers/BackupController.php:52
  * @route '/backup/import'
  */
     const importMethodForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -178,7 +178,7 @@ importMethod.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\BackupController::importMethod
- * @see app/Http/Controllers/BackupController.php:55
+ * @see app/Http/Controllers/BackupController.php:52
  * @route '/backup/import'
  */
         importMethodForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

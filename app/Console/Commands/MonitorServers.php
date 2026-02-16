@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Server;
-use App\Models\Metric;
 use App\Jobs\FetchServerMetrics;
-use Illuminate\Console\Command;
+use App\Models\Metric;
+use App\Models\Server;
 use Carbon\Carbon;
+use Illuminate\Console\Command;
 
 class MonitorServers extends Command
 {
@@ -26,6 +26,7 @@ class MonitorServers extends Command
 
         if ($servers->isEmpty()) {
             $this->info('No active servers to monitor.');
+
             return self::SUCCESS;
         }
 

@@ -10,6 +10,7 @@ class DashboardController extends Controller
     public function index()
     {
         $servers = Server::with('latestMetric')
+            ->orderBy('sort_order')
             ->orderBy('name')
             ->get()
             ->map(function ($server) {
@@ -25,6 +26,7 @@ class DashboardController extends Controller
                     'cpu_threshold' => $server->cpu_threshold,
                     'ram_threshold' => $server->ram_threshold,
                     'disk_threshold' => $server->disk_threshold,
+                    'sort_order' => $server->sort_order,
                 ];
             });
 

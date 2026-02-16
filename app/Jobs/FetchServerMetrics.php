@@ -2,8 +2,8 @@
 
 namespace App\Jobs;
 
-use App\Models\Server;
 use App\Models\Metric;
+use App\Models\Server;
 use App\Services\SshService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -17,6 +17,7 @@ class FetchServerMetrics implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public int $tries = 1;
+
     public int $timeout = 30;
 
     public function __construct(
@@ -27,8 +28,9 @@ class FetchServerMetrics implements ShouldQueue
     {
         $result = $sshService->getMetrics($this->server);
 
-        if (!$result['success']) {
-            \Log::warning("Failed to fetch metrics for server {$this->server->name}: " . ($result['message'] ?? 'Unknown error'));
+        if (! $result['success']) {
+            \Log::warning("Failed to fetch metrics for server {$this->server->name}: ".($result['message'] ?? 'Unknown error'));
+
             return;
         }
 
@@ -78,7 +80,7 @@ class FetchServerMetrics implements ShouldQueue
             $alerts[] = "Disk at {$metrics['disk_usage']}%";
         }
 
-        if (!empty($alerts)) {
+        if (! empty($alerts)) {
             $this->sendAlert($alerts);
         }
     }
@@ -86,7 +88,7 @@ class FetchServerMetrics implements ShouldQueue
     protected function sendAlert(array $alerts): void
     {
         $message = implode(', ', $alerts);
-        \Log::info('Background Alert for ' . $this->server->name . ': ' . $message);
+        \Log::info('Background Alert for '.$this->server->name.': '.$message);
 
         Notification::new()
             ->title("⚠️ Alert: {$this->server->name}")

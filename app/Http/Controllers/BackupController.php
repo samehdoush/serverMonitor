@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Server;
-use Native\Desktop\Dialog;
-use App\Models\Metric;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Carbon\Carbon;
+use Native\Desktop\Dialog;
 
 class BackupController extends Controller
 {
@@ -21,10 +18,10 @@ class BackupController extends Controller
         $path = Dialog::new()
             ->title('Export Servers Backup')
             ->filter('JSON Files', ['json'])
-            ->defaultPath('servers_backup_' . date('Y-m-d') . '.json')
+            ->defaultPath('servers_backup_'.date('Y-m-d').'.json')
             ->save();
 
-        if (!$path) {
+        if (! $path) {
             return back()->with('error', 'Export cancelled');
         }
 
@@ -49,7 +46,7 @@ class BackupController extends Controller
 
         file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT));
 
-        return back()->with('success', 'Backup exported successfully to: ' . $path);
+        return back()->with('success', 'Backup exported successfully to: '.$path);
     }
 
     public function import()
@@ -59,17 +56,17 @@ class BackupController extends Controller
             ->filter('JSON Files', ['json'])
             ->open();
 
-        if (!$path) {
+        if (! $path) {
             return back()->with('error', 'Import cancelled');
         }
 
         $content = file_get_contents($path);
         // Sometimes Dialog returns path with quotes? No, NativePHP simplified that.
         // But let's check if path is actually content if something weird happens? No.
-        
+
         $data = json_decode($content, true);
 
-        if (!isset($data['servers']) || !is_array($data['servers'])) {
+        if (! isset($data['servers']) || ! is_array($data['servers'])) {
             return back()->with('error', 'Invalid backup file format');
         }
 
@@ -82,6 +79,7 @@ class BackupController extends Controller
 
             if ($existing) {
                 $skipped++;
+
                 continue;
             }
 
