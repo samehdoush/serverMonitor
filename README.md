@@ -2,6 +2,11 @@
 
 A comprehensive desktop application for monitoring and managing remote servers through SSH connections. Built with Laravel 12, Inertia.js, Vue 3, and NativePHP for a native desktop experience.
 
+![Screenshot 3](public/screenshots/3.png)
+![Screenshot 1](public/screenshots/1.png)
+![Screenshot 2](public/screenshots/2.png)
+
+
 ## 🚀 Features
 
 ### Server Management
@@ -27,7 +32,6 @@ A comprehensive desktop application for monitoring and managing remote servers t
 - **Log Management**: View and download server logs
 - **Firewall Management**: Configure UFW firewall rules, enable/disable firewall
 - **Cron Job Management**: View and edit crontab entries with human-readable descriptions
-- **Database Management**: View databases and perform database transfers
 - **Caddy Web Server**: Manage Caddyfile configurations for web serving
 
 ### Automation & Recipes
