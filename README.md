@@ -146,6 +146,15 @@ Key configuration options in `.env`:
 - **File Sync**: Bidirectional file synchronization
 - **Backup**: Export application configuration and data
 
+## 🗺️ Roadmap
+
+We have exciting plans for the future of Server Monitor! Here's what we're working on:
+
+- **Automatic Server Provisioning**: One-click setup to prepare fresh servers with all necessary software (PHP, Nginx, MySQL, Redis, etc.).
+- **Site Management**: Full control over websites hosted on your servers.
+- **Laravel Deployment**: Specialized tools to deploy, configure, and manage Laravel applications with ease.
+- **Nginx UI**: A user-friendly interface to manage Nginx configurations, virtual hosts, and SSL certificates without touching config files.
+
 ## 🤝 Contributing
 
 We welcome contributions! Please follow these steps:
