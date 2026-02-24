@@ -127,7 +127,9 @@ const showAddFirewallModal = ref(false);
 const newFirewallRule = ref({
     port: '',
     proto: 'tcp',
-    action: 'allow'
+    action: 'allow',
+    source_scope: 'all',
+    source_ips: ''
 });
 
 // Recipes State
@@ -689,17 +691,29 @@ const installFirewall = async () => {
 
 const addFirewallRule = async () => {
     if (!newFirewallRule.value.port) return alert('Port is required');
+    if (newFirewallRule.value.action === 'allow' && newFirewallRule.value.source_scope === 'specific' && !newFirewallRule.value.source_ips.trim()) {
+        return alert('Please enter at least one source IP/CIDR');
+    }
+
+    const payload = {
+        ...newFirewallRule.value,
+        source_scope: newFirewallRule.value.action === 'allow' ? newFirewallRule.value.source_scope : 'all',
+        source_ips: newFirewallRule.value.action === 'allow' && newFirewallRule.value.source_scope === 'specific'
+            ? newFirewallRule.value.source_ips
+            : ''
+    };
+
     isFirewallLoading.value = true;
     try {
         const response = await fetch(`/servers/${props.server.id}/firewall/rule`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': (document.querySelector('meta[name="csrf-token"]') as any).content },
-            body: JSON.stringify(newFirewallRule.value)
+            body: JSON.stringify(payload)
         });
         const data = await response.json();
         if (data.success) {
             showAddFirewallModal.value = false;
-            newFirewallRule.value = { port: '', proto: 'tcp', action: 'allow' };
+            newFirewallRule.value = { port: '', proto: 'tcp', action: 'allow', source_scope: 'all', source_ips: '' };
             fetchFirewall();
         } else {
             alert('Error: ' + data.message);
@@ -2014,6 +2028,22 @@ onUnmounted(() => {
                                 <option value="deny">Deny</option>
                                 <option value="reject">Reject</option>
                             </select>
+                        </div>
+                        <div v-if="newFirewallRule.action === 'allow'" class="form-group">
+                            <label>Allow Scope</label>
+                            <select v-model="newFirewallRule.source_scope" class="form-select">
+                                <option value="all">Allow from all IPs</option>
+                                <option value="specific">Allow from specific IPs only</option>
+                            </select>
+                        </div>
+                        <div v-if="newFirewallRule.action === 'allow' && newFirewallRule.source_scope === 'specific'" class="form-group">
+                            <label>Source IPs / CIDRs</label>
+                            <textarea
+                                v-model="newFirewallRule.source_ips"
+                                class="form-input"
+                                rows="3"
+                                placeholder="مثال: 203.0.113.10 أو 203.0.113.0/24، وافصل بين القيم بمسافة أو فاصلة أو سطر جديد"
+                            ></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">

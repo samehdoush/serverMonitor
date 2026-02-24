@@ -905,14 +905,50 @@ class SshService
     {
         try {
             $ssh = $this->connect($server);
-            $cmd = "sudo ufw $action $port/$proto";
+            $target = $proto === '' ? $port : $port.'/'.$proto;
+            $cmd = "sudo ufw $action $target";
             $output = $ssh->exec($this->wrapSudo($cmd, $server));
-            $exitStatus = $ssh->getExitStatus();
+            $exitStatus = $ssh->getExitStatus() ?? 1;
+
             $ssh->disconnect();
 
             return [
                 'success' => $exitStatus === 0,
-                'message' => $exitStatus === 0 ? 'Rule added successfully' : "Failed to add rule: $output",
+                'message' => $exitStatus === 0 ? 'Rule added successfully' : 'Failed to add rule: '.$output,
+            ];
+        } catch (Exception $e) {
+            return ['success' => false, 'message' => $e->getMessage()];
+        }
+    }
+
+    /**
+     * Add allow rules from specific source IPs/CIDRs
+     */
+    public function addUfwRuleWithSources(Server $server, string $port, string $proto = 'tcp', array $sourceIps = []): array
+    {
+        try {
+            $ssh = $this->connect($server);
+            $lastOutput = '';
+            $exitStatus = 0;
+
+            foreach ($sourceIps as $sourceIp) {
+                $command = $proto === ''
+                    ? 'sudo ufw allow from '.$sourceIp.' to any port '.$port
+                    : 'sudo ufw allow from '.$sourceIp.' to any port '.$port.' proto '.$proto;
+
+                $lastOutput = $ssh->exec($this->wrapSudo($command, $server));
+                $exitStatus = $ssh->getExitStatus() ?? 1;
+
+                if ($exitStatus !== 0) {
+                    break;
+                }
+            }
+
+            $ssh->disconnect();
+
+            return [
+                'success' => $exitStatus === 0,
+                'message' => $exitStatus === 0 ? 'Rule added successfully' : 'Failed to add rule: '.$lastOutput,
             ];
         } catch (Exception $e) {
             return ['success' => false, 'message' => $e->getMessage()];

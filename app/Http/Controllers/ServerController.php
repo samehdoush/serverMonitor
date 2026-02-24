@@ -373,10 +373,44 @@ class ServerController extends Controller
             'port' => 'required|string',
             'proto' => 'required|string|in:tcp,udp,any',
             'action' => 'required|string|in:allow,deny,reject',
+            'source_scope' => 'nullable|string|in:all,specific',
+            'source_ips' => 'nullable|string',
         ]);
 
         $proto = $validated['proto'] === 'any' ? '' : $validated['proto'];
-        $result = $sshService->addUfwRule($server, $validated['port'], $proto, $validated['action']);
+        $sourceIps = null;
+
+        if (($validated['action'] ?? 'allow') === 'allow' && ($validated['source_scope'] ?? 'all') === 'specific') {
+            $rawSourceIps = trim((string) ($validated['source_ips'] ?? ''));
+
+            if ($rawSourceIps === '') {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Source IPs are required when using specific IP mode.',
+                ], 422);
+            }
+
+            $sourceIps = collect(preg_split('/[\s,]+/', $rawSourceIps))
+                ->filter(fn ($ip) => ! empty($ip))
+                ->values()
+                ->all();
+
+            foreach ($sourceIps as $ipOrCidr) {
+                $isIp = filter_var($ipOrCidr, FILTER_VALIDATE_IP) !== false;
+                $isCidr = preg_match('/^([0-9a-fA-F:.]+)\/(\d{1,3})$/', $ipOrCidr) === 1;
+
+                if (! $isIp && ! $isCidr) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => "Invalid IP/CIDR provided: {$ipOrCidr}",
+                    ], 422);
+                }
+            }
+        }
+
+        $result = ! empty($sourceIps)
+            ? $sshService->addUfwRuleWithSources($server, $validated['port'], $proto, $sourceIps)
+            : $sshService->addUfwRule($server, $validated['port'], $proto, $validated['action']);
 
         return response()->json($result);
     }
