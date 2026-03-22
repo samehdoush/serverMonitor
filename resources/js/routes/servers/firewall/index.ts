@@ -81,7 +81,7 @@ rule.post = (args: { server: number | { id: number } } | [server: number | { id:
     rule.form = ruleForm
 /**
 * @see \App\Http\Controllers\ServerController::toggle
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
 export const toggle = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -96,7 +96,7 @@ toggle.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::toggle
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
 toggle.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -129,7 +129,7 @@ toggle.url = (args: { server: number | { id: number } } | [server: number | { id
 
 /**
 * @see \App\Http\Controllers\ServerController::toggle
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
 toggle.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -139,7 +139,7 @@ toggle.post = (args: { server: number | { id: number } } | [server: number | { i
 
     /**
 * @see \App\Http\Controllers\ServerController::toggle
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
     const toggleForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -149,7 +149,7 @@ toggle.post = (args: { server: number | { id: number } } | [server: number | { i
 
             /**
 * @see \App\Http\Controllers\ServerController::toggle
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
         toggleForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -160,7 +160,7 @@ toggle.post = (args: { server: number | { id: number } } | [server: number | { i
     toggle.form = toggleForm
 /**
 * @see \App\Http\Controllers\ServerController::install
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
 export const install = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -175,7 +175,7 @@ install.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::install
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
 install.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -208,7 +208,7 @@ install.url = (args: { server: number | { id: number } } | [server: number | { i
 
 /**
 * @see \App\Http\Controllers\ServerController::install
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
 install.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -218,7 +218,7 @@ install.post = (args: { server: number | { id: number } } | [server: number | { 
 
     /**
 * @see \App\Http\Controllers\ServerController::install
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
     const installForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -228,7 +228,7 @@ install.post = (args: { server: number | { id: number } } | [server: number | { 
 
             /**
 * @see \App\Http\Controllers\ServerController::install
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
         installForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

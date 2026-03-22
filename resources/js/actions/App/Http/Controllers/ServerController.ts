@@ -1326,7 +1326,7 @@ discoverServices.post = (args: { server: number | { id: number } } | [server: nu
     discoverServices.form = discoverServicesForm
 /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
 export const reboot = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -1341,7 +1341,7 @@ reboot.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
 reboot.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -1374,7 +1374,7 @@ reboot.url = (args: { server: number | { id: number } } | [server: number | { id
 
 /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
 reboot.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -1384,7 +1384,7 @@ reboot.post = (args: { server: number | { id: number } } | [server: number | { i
 
     /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
     const rebootForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -1394,7 +1394,7 @@ reboot.post = (args: { server: number | { id: number } } | [server: number | { i
 
             /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
         rebootForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2003,7 +2003,7 @@ addFirewallRule.post = (args: { server: number | { id: number } } | [server: num
     addFirewallRule.form = addFirewallRuleForm
 /**
 * @see \App\Http\Controllers\ServerController::deleteFirewallRule
- * @see app/Http/Controllers/ServerController.php:384
+ * @see app/Http/Controllers/ServerController.php:418
  * @route '/servers/{server}/firewall/rule'
  */
 export const deleteFirewallRule = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -2018,7 +2018,7 @@ deleteFirewallRule.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::deleteFirewallRule
- * @see app/Http/Controllers/ServerController.php:384
+ * @see app/Http/Controllers/ServerController.php:418
  * @route '/servers/{server}/firewall/rule'
  */
 deleteFirewallRule.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -2051,7 +2051,7 @@ deleteFirewallRule.url = (args: { server: number | { id: number } } | [server: n
 
 /**
 * @see \App\Http\Controllers\ServerController::deleteFirewallRule
- * @see app/Http/Controllers/ServerController.php:384
+ * @see app/Http/Controllers/ServerController.php:418
  * @route '/servers/{server}/firewall/rule'
  */
 deleteFirewallRule.delete = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -2061,7 +2061,7 @@ deleteFirewallRule.delete = (args: { server: number | { id: number } } | [server
 
     /**
 * @see \App\Http\Controllers\ServerController::deleteFirewallRule
- * @see app/Http/Controllers/ServerController.php:384
+ * @see app/Http/Controllers/ServerController.php:418
  * @route '/servers/{server}/firewall/rule'
  */
     const deleteFirewallRuleForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2076,7 +2076,7 @@ deleteFirewallRule.delete = (args: { server: number | { id: number } } | [server
 
             /**
 * @see \App\Http\Controllers\ServerController::deleteFirewallRule
- * @see app/Http/Controllers/ServerController.php:384
+ * @see app/Http/Controllers/ServerController.php:418
  * @route '/servers/{server}/firewall/rule'
  */
         deleteFirewallRuleForm.delete = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2092,7 +2092,7 @@ deleteFirewallRule.delete = (args: { server: number | { id: number } } | [server
     deleteFirewallRule.form = deleteFirewallRuleForm
 /**
 * @see \App\Http\Controllers\ServerController::toggleFirewall
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
 export const toggleFirewall = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -2107,7 +2107,7 @@ toggleFirewall.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::toggleFirewall
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
 toggleFirewall.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -2140,7 +2140,7 @@ toggleFirewall.url = (args: { server: number | { id: number } } | [server: numbe
 
 /**
 * @see \App\Http\Controllers\ServerController::toggleFirewall
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
 toggleFirewall.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -2150,7 +2150,7 @@ toggleFirewall.post = (args: { server: number | { id: number } } | [server: numb
 
     /**
 * @see \App\Http\Controllers\ServerController::toggleFirewall
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
     const toggleFirewallForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2160,7 +2160,7 @@ toggleFirewall.post = (args: { server: number | { id: number } } | [server: numb
 
             /**
 * @see \App\Http\Controllers\ServerController::toggleFirewall
- * @see app/Http/Controllers/ServerController.php:395
+ * @see app/Http/Controllers/ServerController.php:429
  * @route '/servers/{server}/firewall/toggle'
  */
         toggleFirewallForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2171,7 +2171,7 @@ toggleFirewall.post = (args: { server: number | { id: number } } | [server: numb
     toggleFirewall.form = toggleFirewallForm
 /**
 * @see \App\Http\Controllers\ServerController::installFirewall
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
 export const installFirewall = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -2186,7 +2186,7 @@ installFirewall.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::installFirewall
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
 installFirewall.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -2219,7 +2219,7 @@ installFirewall.url = (args: { server: number | { id: number } } | [server: numb
 
 /**
 * @see \App\Http\Controllers\ServerController::installFirewall
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
 installFirewall.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -2229,7 +2229,7 @@ installFirewall.post = (args: { server: number | { id: number } } | [server: num
 
     /**
 * @see \App\Http\Controllers\ServerController::installFirewall
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
     const installFirewallForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2239,7 +2239,7 @@ installFirewall.post = (args: { server: number | { id: number } } | [server: num
 
             /**
 * @see \App\Http\Controllers\ServerController::installFirewall
- * @see app/Http/Controllers/ServerController.php:406
+ * @see app/Http/Controllers/ServerController.php:440
  * @route '/servers/{server}/firewall/install'
  */
         installFirewallForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2250,7 +2250,7 @@ installFirewall.post = (args: { server: number | { id: number } } | [server: num
     installFirewall.form = installFirewallForm
 /**
 * @see \App\Http\Controllers\ServerController::getDatabases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
 export const getDatabases = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -2265,7 +2265,7 @@ getDatabases.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::getDatabases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
 getDatabases.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -2298,7 +2298,7 @@ getDatabases.url = (args: { server: number | { id: number } } | [server: number 
 
 /**
 * @see \App\Http\Controllers\ServerController::getDatabases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
 getDatabases.get = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -2307,7 +2307,7 @@ getDatabases.get = (args: { server: number | { id: number } } | [server: number 
 })
 /**
 * @see \App\Http\Controllers\ServerController::getDatabases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
 getDatabases.head = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -2317,7 +2317,7 @@ getDatabases.head = (args: { server: number | { id: number } } | [server: number
 
     /**
 * @see \App\Http\Controllers\ServerController::getDatabases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
     const getDatabasesForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2327,7 +2327,7 @@ getDatabases.head = (args: { server: number | { id: number } } | [server: number
 
             /**
 * @see \App\Http\Controllers\ServerController::getDatabases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
         getDatabasesForm.get = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2336,7 +2336,7 @@ getDatabases.head = (args: { server: number | { id: number } } | [server: number
         })
             /**
 * @see \App\Http\Controllers\ServerController::getDatabases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
         getDatabasesForm.head = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2352,7 +2352,7 @@ getDatabases.head = (args: { server: number | { id: number } } | [server: number
     getDatabases.form = getDatabasesForm
 /**
 * @see \App\Http\Controllers\ServerController::transferDatabase
- * @see app/Http/Controllers/ServerController.php:453
+ * @see app/Http/Controllers/ServerController.php:487
  * @route '/servers/{server}/databases/transfer'
  */
 export const transferDatabase = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -2367,7 +2367,7 @@ transferDatabase.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::transferDatabase
- * @see app/Http/Controllers/ServerController.php:453
+ * @see app/Http/Controllers/ServerController.php:487
  * @route '/servers/{server}/databases/transfer'
  */
 transferDatabase.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -2400,7 +2400,7 @@ transferDatabase.url = (args: { server: number | { id: number } } | [server: num
 
 /**
 * @see \App\Http\Controllers\ServerController::transferDatabase
- * @see app/Http/Controllers/ServerController.php:453
+ * @see app/Http/Controllers/ServerController.php:487
  * @route '/servers/{server}/databases/transfer'
  */
 transferDatabase.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -2410,7 +2410,7 @@ transferDatabase.post = (args: { server: number | { id: number } } | [server: nu
 
     /**
 * @see \App\Http\Controllers\ServerController::transferDatabase
- * @see app/Http/Controllers/ServerController.php:453
+ * @see app/Http/Controllers/ServerController.php:487
  * @route '/servers/{server}/databases/transfer'
  */
     const transferDatabaseForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2420,7 +2420,7 @@ transferDatabase.post = (args: { server: number | { id: number } } | [server: nu
 
             /**
 * @see \App\Http\Controllers\ServerController::transferDatabase
- * @see app/Http/Controllers/ServerController.php:453
+ * @see app/Http/Controllers/ServerController.php:487
  * @route '/servers/{server}/databases/transfer'
  */
         transferDatabaseForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

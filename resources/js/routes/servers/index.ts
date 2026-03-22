@@ -1331,7 +1331,7 @@ discoverServices.post = (args: { server: number | { id: number } } | [server: nu
     discoverServices.form = discoverServicesForm
 /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
 export const reboot = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -1346,7 +1346,7 @@ reboot.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
 reboot.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -1379,7 +1379,7 @@ reboot.url = (args: { server: number | { id: number } } | [server: number | { id
 
 /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
 reboot.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -1389,7 +1389,7 @@ reboot.post = (args: { server: number | { id: number } } | [server: number | { i
 
     /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
     const rebootForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -1399,7 +1399,7 @@ reboot.post = (args: { server: number | { id: number } } | [server: number | { i
 
             /**
 * @see \App\Http\Controllers\ServerController::reboot
- * @see app/Http/Controllers/ServerController.php:468
+ * @see app/Http/Controllers/ServerController.php:502
  * @route '/servers/{server}/reboot'
  */
         rebootForm.post = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -1716,7 +1716,7 @@ firewall.head = (args: { server: number | { id: number } } | [server: number | {
     firewall.form = firewallForm
 /**
 * @see \App\Http\Controllers\ServerController::databases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
 export const databases = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1731,7 +1731,7 @@ databases.definition = {
 
 /**
 * @see \App\Http\Controllers\ServerController::databases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
 databases.url = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -1764,7 +1764,7 @@ databases.url = (args: { server: number | { id: number } } | [server: number | {
 
 /**
 * @see \App\Http\Controllers\ServerController::databases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
 databases.get = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1773,7 +1773,7 @@ databases.get = (args: { server: number | { id: number } } | [server: number | {
 })
 /**
 * @see \App\Http\Controllers\ServerController::databases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
 databases.head = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1783,7 +1783,7 @@ databases.head = (args: { server: number | { id: number } } | [server: number | 
 
     /**
 * @see \App\Http\Controllers\ServerController::databases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
     const databasesForm = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1793,7 +1793,7 @@ databases.head = (args: { server: number | { id: number } } | [server: number | 
 
             /**
 * @see \App\Http\Controllers\ServerController::databases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
         databasesForm.get = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1802,7 +1802,7 @@ databases.head = (args: { server: number | { id: number } } | [server: number | 
         })
             /**
 * @see \App\Http\Controllers\ServerController::databases
- * @see app/Http/Controllers/ServerController.php:413
+ * @see app/Http/Controllers/ServerController.php:447
  * @route '/servers/{server}/databases'
  */
         databasesForm.head = (args: { server: number | { id: number } } | [server: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
